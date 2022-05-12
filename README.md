@@ -16,4 +16,4 @@ Npm Start
 - Javascript
 - Html
 - Css
-
+- Styled-components
