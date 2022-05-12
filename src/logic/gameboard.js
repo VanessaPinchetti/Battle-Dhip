@@ -3,19 +3,23 @@ export default function gameboardCaller(length) {
 }
 
 function gameboard(size, ships = [], misses = []) {
+  // Tamaño baord...
   const isOutOfBounds = (pos) =>
     pos.x < 0 || pos.x > size - 1 || pos.y < 0 || pos.y > size - 1;
 
   const posContainsShip = (pos) =>
     ships.some((ship) => ship.getBoardSpaceCoords().some((v) => v.equals(pos)));
 
+  // Falla Hit
   const isMissPos = (pos) => misses.some((miss) => miss.equals(pos));
 
+  // Acierta Hit
   const isHitPos = (pos) =>
     ships.some((ship) => ship.hits.some((hitPos) => hitPos.equals(pos)));
 
   const getHits = () => ships.reduce((acc, ship) => [...acc, ...ship.hits], []);
 
+  // Colocar Flota
   const isValidShip = (ship) =>
     ship
       .getBoardSpaceCoords()
@@ -51,19 +55,17 @@ function gameboard(size, ships = [], misses = []) {
       );
     }
 
-    // try to find a ship at that position
+    // Trata de encontrar la nave con el hit
     const hitShip = ships.find((ship) =>
       ship.getBoardSpaceCoords().some((position) => position.equals(hitPos))
     );
 
     if (hitShip) {
-      // Find which segment of the ship was hit by matching board-space coords
-      // TODO: this should probably be handled by ship...
       const hitSegment = hitShip
         .getBoardSpaceCoords()
         .findIndex((pos) => pos.equals(hitPos));
 
-      // remove hitship from ships and replace with newship
+      // Quitqa el hit de la nave  y la reemplaza por nueva nave
       const newShip = hitShip.hit(hitSegment);
       const newShips = ships.map((ship) => (ship === hitShip ? newShip : ship));
 
