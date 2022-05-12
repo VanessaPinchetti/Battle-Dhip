@@ -4,6 +4,7 @@ function ship(
   rotation,
   localHits = Array(length).fill(false)
 ) {
+  // Para atacar
   const getHits = () =>
     localHits.reduce(
       (acc, hit, i) => (hit ? [...acc, getBoardSpaceCoord(i)] : acc),
@@ -20,7 +21,8 @@ function ship(
     }
     return boardSpaceCoords;
   };
-
+    
+  // Acierto
   const hit = (hitPos) => {
     if (hitPos > length - 1 || hitPos < 0) {
       throw new Error(`Tried to hit a ship at illegal position ${hitPos}`);
@@ -30,6 +32,7 @@ function ship(
     return ship(length, origin, rotation, newHits);
   };
 
+  // Hundido
   const isSunk = () => !localHits.includes(false);
 
   return {
