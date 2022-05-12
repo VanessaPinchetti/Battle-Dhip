@@ -4,16 +4,16 @@ Famoso juego de estrategia
 El juego consiste en que posiciones tu flota en el tablero y despúes trates de hundir la flota enemiga adivinando la posición.
 
 
-# Para Instalar:
+## Para Instalar:
 Npm Install
 
-# Para Correr:
+## Para Correr:
 Npm Start
 
 ## Tecnologias utilizadas:
-React
-Bootstrap
-Javascript
-Html
-Css
+- React
+- Bootstrap
+- Javascript
+- Html
+- Css
 
