@@ -14,6 +14,7 @@ const GAME_MODES = {
 };
 
 function App() {
+  // Muestra las tablas del jugador  y la IA
   const useBoardPlayer = useState(() => gameboard(10));
 
   const useBoardNpc = useState(() =>
@@ -22,6 +23,7 @@ function App() {
 
   const [gameScene, setGameScene] = useState({ mode: GAME_MODES.rules });
 
+  // Inicia el juego
   const initializeGame = () => {
     const [, setPlayerBoard] = useBoardPlayer;
     const [, setNpcBoard] = useBoardNpc;
@@ -35,10 +37,12 @@ function App() {
     setGameScene({ mode: GAME_MODES.gameOver, winner });
   };
 
+  // Muestra las instruciones
   const renderInstructions = () => (
     <Instructions onContinue={() => setGameScene({ mode: GAME_MODES.setup })} />
   );
 
+  // 
   const renderSetup = () => (
     <GameSetup
       useBoard={useBoardPlayer}
@@ -54,6 +58,7 @@ function App() {
     />
   );
 
+  // Muestra quin gana o pierda
   const renderGameOver = () => (
     <>
       {gameScene.winner === "Player" ? (
