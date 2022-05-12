@@ -1,15 +1,19 @@
 # BattleShip2.0
 Famoso juego de estrategia
 
-Para Instalar:
+El juego consiste en que posiciones tu flota en el tablero y despúes trates de hundir la flota enemiga adivinando la posición.
+
+
+# Para Instalar:
 Npm Install
 
-Para Correr:
+# Para Correr:
 Npm Start
 
-Tecnologias utilizadas:
+## Tecnologias utilizadas:
 React
 Bootstrap
 Javascript
 Html
 Css
+
