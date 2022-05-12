@@ -19,15 +19,18 @@ function MainGame({ useBoardPlayer, useBoardNpc, onGameOver }) {
     }
   }, [playerBoard, npcBoard, onGameOver]);
 
+  // Turno
   const npcTurn = () => {
     setPlayerBoard((prev) => prev.receiveHit(getSmartPos(prev)));
   };
 
+  // Aumenta en 1 el contador
   const incrementTurn = () => {
     npcTurn();
     setTurn((prev) => prev + 1);
   };
 
+  // Muestra el daño del barco impactado
   const getSunkCount = (gameBoard) =>
     gameBoard.ships.reduce(
       (acc, ship) => (ship.isSunk() ? acc - 1 : acc),
