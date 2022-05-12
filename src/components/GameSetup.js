@@ -40,8 +40,6 @@ export default function GameSetup({ useBoard, onAllShipsPlaced }) {
     setBoard((prevBoard) => prevBoard.addShip(mostCurrentShip));
 
     if (shipIndex < shipLengths.length - 1) {
-      // Set the next "preview" ship to:
-      // next length in array, current pos, & rotation of previous ship
       setCurrentShip(
         ship(shipLengths[shipIndex + 1], pos, mostCurrentShip.rotation)
       );
