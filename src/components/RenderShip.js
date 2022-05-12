@@ -4,7 +4,7 @@ export default function RenderShip({
   ship,
   customStyle = { background: "grey", border: "1px solid black" },
 }) {
-  // default bg is grey
+  // Por defecto es gris
   const getGridPosition = () => {
     const xStart =
       ship.rotation.x >= 0
