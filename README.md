@@ -1,19 +1,20 @@
-# BattleShip2.0
-Famoso juego de estrategia
+# BattleShip
+Juego de Estrategia
 
-El juego consiste en que posiciones tu flota en el tablero y despúes trates de hundir la flota enemiga adivinando la posición.
+Cada jugador ubicará sus barcos en la cuadrícula horizontal sin que su oponente vea donde están ubicados. Se pueden ubicar de manera horizontal o vertical nunca diagonal. Los barcos pueden tocarse en los extremos pero nunca uno sobre el otro. Los jugadores toman turnos para atacar a su oponente.
 
 
 ## Para Instalar:
-Npm Install
+npm install
+
 
 ## Para Correr:
-Npm Start
+npm run start
 
 ## Tecnologias utilizadas:
-- React
+- React.js
 - Bootstrap
-- Javascript
+- JavaScript
 - Html
 - Css
 - Styled-components
