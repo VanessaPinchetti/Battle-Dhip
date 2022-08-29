@@ -4,6 +4,9 @@ import Gameboard from "./Gameboard";
 import RenderShips from "./RenderShips";
 import RenderShipPreview from "./RenderShipPreview";
 import vec2, { direction } from "../vec2";
+import {GiBattleship} from 'react-icons/gi';
+import {BsArrowDownShort} from 'react-icons/bs';
+
 
 export default function GameSetup({ useBoard, onAllShipsPlaced }) {
   const shipLengths = [5, 4, 3, 3, 2];
@@ -51,7 +54,9 @@ export default function GameSetup({ useBoard, onAllShipsPlaced }) {
 
   return (
     <div>
-      <h2>Coloca tus barcos!</h2>
+      <h2 className="fs-4 mt-5 mb-4" style={{fontFamily: "Verdana, Geneva, Tahoma, sans-serif", color: "#8b6685"}} >Distribuye tus barcos  <GiBattleship/></h2>
+     
+     
       <div className="board"
         onWheel={(e) =>
           e.deltaY > 0
@@ -71,14 +76,20 @@ export default function GameSetup({ useBoard, onAllShipsPlaced }) {
           <RenderShips ships={board.ships} />
         </Gameboard>
       </div>
-      <p>Rota tus barcos con el botón Rotar</p>
+      <p className="fs-6 fst-italic mt-2" style={{fontFamily: "Verdana, Geneva, Tahoma, sans-serif", color: "#8b6685"}}>Gira tus barcos con el botón <b>Rotar</b> <br></br> < BsArrowDownShort/> 
+    </p>
+      
       <button
-        className="btn btn-dark"
+        className="btn btn-outline-light gradient-custom mb-1"
+        
         onClick={() =>
           setCurrentShip((prevShip) => incrementShipRotation(prevShip))
         }
       >
+    
         Rotar
+        
+
       </button>
     </div>
   );

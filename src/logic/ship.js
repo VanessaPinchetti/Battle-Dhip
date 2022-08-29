@@ -4,7 +4,7 @@ function ship(
   rotation,
   localHits = Array(length).fill(false)
 ) {
-  // Para atacar
+  // Atacar
   const getHits = () =>
     localHits.reduce(
       (acc, hit, i) => (hit ? [...acc, getBoardSpaceCoord(i)] : acc),

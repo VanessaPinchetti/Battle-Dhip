@@ -2,9 +2,9 @@ import React from "react";
 
 export default function RenderShip({
   ship,
-  customStyle = { background: "grey", border: "1px solid black" },
+  customStyle = { background: "#434343", border: "1px solid black" },
 }) {
-  // Por defecto es gris
+  
   const getGridPosition = () => {
     const xStart =
       ship.rotation.x >= 0
@@ -19,10 +19,10 @@ export default function RenderShip({
 
     const getSpan = (rotation, origin) =>
       rotation === 0
-        ? 1 // if 0, span 1
+        ? 1 
         : rotation > 0
-          ? ship.length // else, if > 0, span = length
-          : Math.min(origin + 1, ship.length); // BUT if < 0, min is origin
+          ? ship.length 
+          : Math.min(origin + 1, ship.length); 
 
     const xSpan = getSpan(ship.rotation.x, ship.origin.x);
     const ySpan = getSpan(ship.rotation.y, ship.origin.y);
@@ -33,7 +33,7 @@ export default function RenderShip({
     };
   };
 
-  const sunkStyle = () => (ship.isSunk() ? { background: "red" } : {});
+  const sunkStyle = () => (ship.isSunk() ? { background: "#932020" } : {}); //red
 
   return (
     <>

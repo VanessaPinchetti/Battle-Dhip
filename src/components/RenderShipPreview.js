@@ -6,7 +6,7 @@ export default function RenderShipPreview({ ship, isValidPos }) {
       ship={ship}
       customStyle={{
         opacity: "50%",
-        backgroundColor: isValidPos ? "green" : "red",
+        backgroundColor: isValidPos ? "#317504" : "#932020", //green  //red
       }}
     />
   );

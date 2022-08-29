@@ -5,6 +5,12 @@ import * as ai from "./logic/playerAi";
 import GameSetup from "./components/GameSetup";
 import Instructions from "./components/Instructions";
 import Footer from "./components/Footer";
+import {TbShip} from 'react-icons/tb';
+import {FaSadCry} from 'react-icons/fa';
+import {BiHappyAlt} from 'react-icons/bi';
+
+
+
 
 const GAME_MODES = {
   rules: "rules",
@@ -14,7 +20,7 @@ const GAME_MODES = {
 };
 
 function App() {
-  // Muestra las tablas del jugador  y la IA
+  
   const useBoardPlayer = useState(() => gameboard(10));
 
   const useBoardNpc = useState(() =>
@@ -23,7 +29,7 @@ function App() {
 
   const [gameScene, setGameScene] = useState({ mode: GAME_MODES.rules });
 
-  // Inicia el juego
+  // Inicio del juego
   const initializeGame = () => {
     const [, setPlayerBoard] = useBoardPlayer;
     const [, setNpcBoard] = useBoardNpc;
@@ -37,12 +43,12 @@ function App() {
     setGameScene({ mode: GAME_MODES.gameOver, winner });
   };
 
-  // Muestra las instruciones
+  // Instruciones
   const renderInstructions = () => (
     <Instructions onContinue={() => setGameScene({ mode: GAME_MODES.setup })} />
   );
 
-  // 
+  
   const renderSetup = () => (
     <GameSetup
       useBoard={useBoardPlayer}
@@ -58,16 +64,18 @@ function App() {
     />
   );
 
-  // Muestra quin gana o pierda
+  
   const renderGameOver = () => (
     <>
       {gameScene.winner === "Player" ? (
-        <h2>Felicidades! <br/>  Ganaste!</h2>
+        <h2 className="mt-5 p-2"> style={{fontFamily: "Trebuchet MS", color: "#8b6685"}}¡Felicidades! <br/>  <BiHappyAlt/> <br/> ¡Ganaste!</h2>
       ) : (
-        <h2>Mala Suerte! <br/>  Perdiste!</h2>
+        <h2 className="mt-5 p-2"  style={{fontFamily: "Trebuchet MS", color: "#8b6685"}}>Mala Suerte <br/>  <FaSadCry/>  <br/>¡Perdiste!</h2> 
       )}
-      <button className="btn btn-dark mt-4" 
-      onClick={() => initializeGame()}>¿Quieres jugar de nuevo?</button>
+
+
+      <button className="btn btn-outline-light gradient-custom" style={{fontFamily: "Verdana, Geneva, Tahoma, sans-serif"}}
+      onClick={() => initializeGame()}>¿Quieres vovler a Jugar?</button>
     </>
   );
 
@@ -89,7 +97,18 @@ function App() {
   return (
     <div className="text-center justify-content-center">
       <div className="title">
-        <h1 className="title1">BattleShip</h1>
+      
+        <h1 className="title1" style={{fontFamily:"fantasy", background: "#080808", color:"#f4f3f5"}}>  <TbShip/> BATTLESHIP  <TbShip/> </h1>
+
+       
+       
+      
+
+    
+      
+       
+        
+       
       </div>
       {selectRenderMode(gameScene.mode)}
       < Footer />

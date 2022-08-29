@@ -55,7 +55,7 @@ function gameboard(size, ships = [], misses = []) {
       );
     }
 
-    // Trata de encontrar la nave con el hit
+    
     const hitShip = ships.find((ship) =>
       ship.getBoardSpaceCoords().some((position) => position.equals(hitPos))
     );
@@ -65,7 +65,7 @@ function gameboard(size, ships = [], misses = []) {
         .getBoardSpaceCoords()
         .findIndex((pos) => pos.equals(hitPos));
 
-      // Quitqa el hit de la nave  y la reemplaza por nueva nave
+      
       const newShip = hitShip.hit(hitSegment);
       const newShips = ships.map((ship) => (ship === hitShip ? newShip : ship));
 

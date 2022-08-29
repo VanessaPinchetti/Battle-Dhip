@@ -19,18 +19,18 @@ function MainGame({ useBoardPlayer, useBoardNpc, onGameOver }) {
     }
   }, [playerBoard, npcBoard, onGameOver]);
 
-  // Turno
+  
   const npcTurn = () => {
     setPlayerBoard((prev) => prev.receiveHit(getSmartPos(prev)));
   };
 
-  // Aumenta en 1 el contador
+  
   const incrementTurn = () => {
     npcTurn();
     setTurn((prev) => prev + 1);
   };
 
-  // Muestra el daño del barco impactado
+  
   const getSunkCount = (gameBoard) =>
     gameBoard.ships.reduce(
       (acc, ship) => (ship.isSunk() ? acc - 1 : acc),
@@ -39,20 +39,20 @@ function MainGame({ useBoardPlayer, useBoardNpc, onGameOver }) {
 
   return (
     <div>
-      <div>Turno: {turn}</div>
+      <div className="fw-light mt-4" style={{fontFamily: "sans-serif", color: "#8b6685", fontSize: "20px"}}>Turno: {turn}</div>
       <div className="boardgame">
       <StyledBoardContainer>
         <div>
-          <h2>Flota Enemiga</h2>
+          <h2 style={{fontFamily: "sans-serif", color: "#8b6685", fontSize: "30px", marginTop: "10%"}}>Flota Enemiga</h2>
           <EnemyBoard
             gameboard={npcBoard}
             setGameboard={setNpcBoard}
             onAttack={incrementTurn}
           />
-          <p>Barcos restantes del enemigo: {getSunkCount(npcBoard)}</p>
+          <p className="fst-lighter mt-2" style={{fontFamily: "Verdana, Geneva, Tahoma, sans-serif", color: "#8b6685"}}>Barcos restantes del enemigo: {getSunkCount(npcBoard)}</p>
         </div>
         <div>
-          <h2>Tu Flota</h2>
+          <h2 style={{fontFamily: "sans-serif", color: "#8b6685", fontSize: "30px" , marginTop: "10%"}}>Tu Flota</h2>
           <Gameboard gameboard={playerBoard}>
             <BoardHitsMisses
               hits={playerBoard.hits}
@@ -60,7 +60,7 @@ function MainGame({ useBoardPlayer, useBoardNpc, onGameOver }) {
             />
             <RenderShips ships={playerBoard.ships} />
           </Gameboard>
-          <p>Tus barcos restantes: {getSunkCount(playerBoard)}</p>
+          <p className="fst-lighter mt-2" style={{fontFamily: "Verdana, Geneva, Tahoma, sans-serif", color: "#8b6685"}}>Tus barcos restantes: {getSunkCount(playerBoard)}</p>
         </div>
       </StyledBoardContainer>
       </div>
